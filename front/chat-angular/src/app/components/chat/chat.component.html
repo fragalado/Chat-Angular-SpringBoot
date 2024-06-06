@@ -1,0 +1,20 @@
+<div class="position-relative w-50 mx-auto border border-dark border-2 overflow-hidden shadow-lg rounded-4"
+    style="min-height: 60vh; margin-top: 20vh">
+    <div class="m-1" style="min-height: 480px">
+        <ul class="messages">
+            <li class="message" *ngFor="let item of messageList" [ngClass]="{'left': item.message_side === 'receiver', 'right': item.message_side === 'sender'}">
+                <div class="avatar"></div>
+                <div class="text_wrapper">
+                    <div class="text">{{item.message}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="position-absolute bottom-0 start-50 translate-middle-x p-2 shadow-lg border border-dark rounded-pill mb-1"
+        style="min-width: 500px">
+        <input type="text" class="form-control d-inline me-2" placeholder="Escriba su mensaje"
+            style="max-width: 300px" [(ngModel)]="messageInput" />
+        <button type="button" class="btn btn-success" (click)="sendMessage()">Enviar</button>
+    </div>
+</div>
